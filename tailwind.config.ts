@@ -13,7 +13,28 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
+			animation: {
+				autoScroll: 'scroll 8s linear 1.3s'
+			},
+			keyframes: {
+				scroll: {
+					'0%': { transform: 'translateY(0)'},
+					'100%': { transform: 'translateY(-100%)'}
+				},
+				scrollReverse: {
+					'0%': { transform: 'translateY(-100%)'},
+					'100%': { transform: 'translateY(0)'}
+				},
+				scrollHorizontal: {
+					'0%': { transform: 'translateX(0)'},
+					'100%': { transform: 'translateX(-100%)'}
+				},
+				scrollHorizontalReverse: {
+					'0%': { transform: 'translateX(-100%)'},
+					'100%': { transform: 'translateX(0)'}
+				}
+			}
+    }
   },
   plugins: [],
 };
