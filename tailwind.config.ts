@@ -14,15 +14,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
 			animation: {
-				autoScroll: 'scroll 8s linear 1.3s'
+				autoScroll: '1s linear 1.5s forwards scroll, 1s linear 4s forwards scrollReverse'
 			},
 			keyframes: {
 				scroll: {
 					'0%': { transform: 'translateY(0)'},
-					'100%': { transform: 'translateY(-100%)'}
+					'100%': { transform: 'translateY(-49%)'}
 				},
 				scrollReverse: {
-					'0%': { transform: 'translateY(-100%)'},
+					'0%': { transform: 'translateY(-49%)'},
 					'100%': { transform: 'translateY(0)'}
 				},
 				scrollHorizontal: {
