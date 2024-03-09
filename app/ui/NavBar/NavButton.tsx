@@ -14,10 +14,16 @@ const NavButton: React.FC<NavButtonProps> = ({text, link}) => {
 	const pathname = usePathname();
   return (
 	  
-			<div className={clsx(
-				"flex bg-blue-500 hover:bg-blue-300 w-full items-center justify-center",
-				{"bg-blue-400": pathname === `/${text.toLowerCase()}`}
-			)}><Link href={link} className="flex justify-center items-center w-full h-full">
+		<div className={
+			clsx(
+				"flex hover:bg-blue-300 w-full items-center justify-center",
+				{
+					"bg-blue-500": pathname !== `/${text.toLowerCase()}`,
+					"bg-blue-400": pathname === `/${text.toLowerCase()}`
+				}
+			)
+		}>
+			<Link href={link} className="flex justify-center items-center w-full h-full">
 				{text}
 			</Link></div>
 		
