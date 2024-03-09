@@ -4,11 +4,10 @@ import ProjectCard from "../ui/ProjectCard/ProjectCard";
 // get all my public repositories
 const octokit = new Octokit();
 const response = await octokit.request('GET /users/charlie-bedell/repos');
+
 // move these two to another component
-const repoContents = await octokit.request('GET /repos/charlie-bedell/partysync-front-end/contents/README.md');
-console.log(atob(repoContents.data.content));
-
-
+// const repoContents = await octokit.request('GET /repos/charlie-bedell/partysync-front-end/contents/README.md');
+// console.log(atob(repoContents.data.content));
 
 // exclude certain repositories
 const excludeRepos = [
@@ -21,10 +20,7 @@ const excludeRepos = [
 	'public_record_keeper'
 ];
 
-const repositories = response.data.filter((repo: any) => {
-	return !excludeRepos.includes(repo.name);
-});
-
+const repositories = response.data.filter((repo: any) => !excludeRepos.includes(repo.name));
 
 const Page: React.FC = () => {
   return (
