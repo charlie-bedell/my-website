@@ -1,8 +1,9 @@
-import clsx from "clsx"
+import clsx from "clsx";
+import { tabState } from "../ProjectModal/ProjectModal";
 
 interface SubNavButtonProps {
-  name: string,
-	handleChange: (name: string) => void,
+  name: tabState,
+	handleChange: (name: tabState) => void,
 	currentTab: string,
 }
 

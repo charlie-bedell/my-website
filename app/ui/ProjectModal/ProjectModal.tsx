@@ -3,15 +3,64 @@
 import { useState } from "react";
 import ProjectCardTitle from "../ProjectCard/ProjectCardTitle";
 import SubNav from "../SubNav/SubNav";
+import RepoContent from "../RepoContent/RepoContent";
 
 interface ProjectModalProps {
   repoName: string,
 	readmeImgUrl: string,
 }
 
+export type tabState = "Overview" | "Readme";
+
 const ProjectModal: React.FC<ProjectModalProps> = ({ repoName, readmeImgUrl }) => {
-	const [currentTab, setCurrentTab] = useState<string>("Overview");
-	const changeTab = (tabName: string) => setCurrentTab(tabName);
+	const [currentTab, setCurrentTab] = useState<tabState>("Overview");
+	const changeTab = (tabName: tabState) => setCurrentTab(tabName);
+
+	const readmeContent = "### Party SYNC is a full-stack app that uses the Python-based Django REST Framework with a React.js frontend.\n" +
+	"This app helps party hosts invite friends to one location where they can read all the party details.\n" +
+		"\n## Technologies and Libraries Used\n" +
+	"This application is built using the Python-based Django REST Framework with a React.js frontend and a Heroku/Netlify deployment.\n" +
+	"Backend Technologies used:\n" +
+	"\n-- Python\n" +
+	"\n-- Django\n" +
+	"\n-- Sql\n" +
+	"\n-- JWT Auth\n" +
+	"\n-- Heroku\n" +
+	"FrontEnd Technologies used\n" +
+	"\n-- Node.js\n" +
+	"\n-- React.js\n" +
+	"\n-- Netlify\n" +
+	"\n-- Photoshop\n" +
+	"\n## MVP User Stories & Stretch Goals\n" +
+		"https://trello.com/b/Vdd8iW0j\n";
+
+	const overviewContent = "Back in the day when I was a teenager\n" +
+		"before I had status, before I had pager\n" +
+		"I would be at home be listenting to hip hop\n" +
+		"my daddy said it reminded him of bebop\n" +
+		"I said well daddy you know these things go in cycles\n";
+
+	
+  type contentObject = {
+		[key in tabState]: {
+			contentType: tabState,
+			title: string,
+			content: string,
+		};
+	}
+
+	const contentDisplay: contentObject = {
+		"Overview": {
+			contentType: "Overview",
+			title: "Overview",
+			content: overviewContent
+		},
+		"Readme": {
+			contentType: "Overview",
+			title: "Readme.md",
+			content: readmeContent,
+		}
+	};
 	
   return (
 	  <div className="flex flex-col items-center w-5/6 h-5/6 bg-gray-200">
@@ -20,7 +69,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ repoName, readmeImgUrl }) =
 				<img className="w-full h-full object-cover"
 					src={readmeImgUrl} />
 			</div>
-				<SubNav currentTab={currentTab} handleChange={changeTab}/>
+			<SubNav currentTab={currentTab} handleChange={changeTab}/>
+			<RepoContent contentType={contentDisplay[currentTab].contentType} title={contentDisplay[currentTab].title} content={contentDisplay[currentTab].content} />
+			
 		</div>
 	)
 }
