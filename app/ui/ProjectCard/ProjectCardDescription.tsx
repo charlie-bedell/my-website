@@ -1,5 +1,3 @@
-
-
 interface ProjectCardDescriptionProps {
   description: string,
 }
