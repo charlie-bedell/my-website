@@ -48,7 +48,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 			</div>
 			<SubNav currentTab={currentTab} handleChange={changeTab}/>
 			<RepoContent contentType={contentDisplay[currentTab].contentType} title={contentDisplay[currentTab].title} content={contentDisplay[currentTab].content} />
-			
 		</div>
 	)
 }
