@@ -4,7 +4,7 @@ import { tabState } from "../ProjectModal/ProjectModal";
 
 interface SubNavProps {
   currentTab: string,
-	handleChange: (name: tabState ) => void,
+	handleChange: (name: tabState) => void,
 }
 
 const SubNav: React.FC<SubNavProps> = ({ currentTab, handleChange }) => {

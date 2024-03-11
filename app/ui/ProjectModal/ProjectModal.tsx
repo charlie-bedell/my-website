@@ -8,11 +8,12 @@ import RepoContent from "../RepoContent/RepoContent";
 interface ProjectModalProps {
   repoName: string,
 	readmeImgUrl: string,
+	closeModalHandler: () => void,
 }
 
 export type tabState = "Overview" | "Readme";
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ repoName, readmeImgUrl }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ repoName, readmeImgUrl, closeModalHandler }) => {
 	const [currentTab, setCurrentTab] = useState<tabState>("Overview");
 	const changeTab = (tabName: tabState) => setCurrentTab(tabName);
 
@@ -63,8 +64,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ repoName, readmeImgUrl }) =
 	};
 	
   return (
-	  <div className="flex flex-col items-center w-5/6 h-5/6 bg-gray-200">
-		  <ProjectCardTitle title={repoName} />
+	  <div className="fixed inset-x-40 inset-y-10 bg-gray-200 rounded-xl">
+			<div className="flex justify-between">
+				<ProjectCardTitle title={repoName} />
+				<button
+					onClick={() => {closeModalHandler()}}
+					className="flex justify-center items-center font-bold px-4 text-black border border-black rounded-tr-xl">X</button>
+			</div>
 			<div className="flex w-full h-[200px] justify-center align-center">
 				<img className="w-full h-full object-cover"
 					src={readmeImgUrl} />
