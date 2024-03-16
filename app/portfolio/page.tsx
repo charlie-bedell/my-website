@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from "react";
-import { Octokit } from "octokit";
 import ProjectCard from "@/app/ui/ProjectCard/ProjectCard";
 import ProjectModal from "@/app/ui/ProjectModal/ProjectModal";
 import { retrieveRepos } from "@/app/lib/githubApi";
@@ -17,18 +16,18 @@ const Page: React.FC = () => {
 			.catch((err) => console.error(err));
 	}, []);
 
-	const enableModal = (repo: any) => {
+	const enableModal = (repoId: any) => {
+		changeCurrentRepo(repoId);
 		setDisplayModal(true);
-		changeCurrentRepo(repo);
 	}
 
 	const disableModal = () => {
 		setDisplayModal(false);
 	}
 
-	const changeCurrentRepo = (repo: any) => {
-		if (repo !== currentRepo) {
-			setCurrentRepo(repo);
+	const changeCurrentRepo = (repoId: any) => {
+		if (repoId !== currentRepo) {
+			setCurrentRepo(repoId);
 		}
 	}
 	

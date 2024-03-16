@@ -58,6 +58,7 @@ export const retrieveRepos = async () => {
 			return {
 				...accum,
 				[curr.id]: {
+					id: curr.id,
 					name: curr.name,
 					description: curr.description,
 					readme: "",
