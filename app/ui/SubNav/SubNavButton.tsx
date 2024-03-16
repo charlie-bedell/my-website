@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { tabState } from "../ProjectModal/ProjectModal";
+import { tabState } from "@/app/lib/definitions";
 
 interface SubNavButtonProps {
   name: tabState,

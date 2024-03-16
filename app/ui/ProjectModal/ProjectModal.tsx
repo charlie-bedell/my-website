@@ -11,12 +11,16 @@ interface ProjectModalProps {
   repoName: string,
 	readmeImgUrl: string,
 	closeModalHandler: () => void,
+	readme: string,
+	overview?: string
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({
 	repoName,
 	readmeImgUrl,
-	closeModalHandler }) => {
+	closeModalHandler,
+	readme,
+	overview}) => {
 
 	const [currentTab, setCurrentTab] = useState<tabState>("Overview");
 	const changeTab = (tabName: tabState) => setCurrentTab(tabName);
@@ -25,12 +29,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 		"Overview": {
 			contentType: "Overview",
 			title: "Overview",
-			content: data.overviewContent
+			content: overview ?? "no content"
 		},
 		"Readme": {
 			contentType: "Readme",
 			title: "Readme.md",
-			content: data.readmeContent,
+			content: readme,
 		}
 	};
 	

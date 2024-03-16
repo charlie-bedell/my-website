@@ -7,13 +7,13 @@ import { data } from "@/app/lib/data";
 interface ProjectCardProps {
   description: string,
 	title: string,
-	url: string,
-	openModalHandler: () => void,
+	id: number,
+	openModalHandler: (repo: any) => void,
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, url, openModalHandler }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, id, openModalHandler }) => {
   return (
-		<button onClick={() => openModalHandler()}>
+		<button onClick={() => openModalHandler(id)}>
 	  <div className="flex flex-col items-center w-[400px] h-[400px] bg-gray-200 p-1 rounded-md group">
 			<ProjectCardTitle title={title} />
 				<img className="w-full h-full object-cover" src={data.testImage} />

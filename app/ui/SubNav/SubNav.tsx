@@ -1,6 +1,5 @@
 import SubNavButton from "./SubNavButton";
-
-import { tabState } from "../ProjectModal/ProjectModal";
+import { tabState } from "@/app/lib/definitions";
 
 interface SubNavProps {
   currentTab: string,
