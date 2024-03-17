@@ -4,7 +4,7 @@ interface RepoContentProps {
 	content: string,
 }
 
-const RepoContent: React.FC<RepoContentProps> = ({ type, title, content}) => {
+const RepoContent: React.FC<RepoContentProps> = ({ contentType, title, content}) => {
   return (
 		<div>
 			<article className="text-black flex flex-col gap-1 m-2 p-4 pt-2 bg-slate-500">

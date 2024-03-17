@@ -4,7 +4,7 @@ import { useState } from "react";
 import ProjectCardTitle from "@/app/ui/ProjectCard/ProjectCardTitle";
 import SubNav from "@/app/ui/SubNav/SubNav";
 import RepoContent from "@/app/ui/RepoContent/RepoContent";
-import { tabState, contentObject } from "@/app/lib/definitions";
+import { tabState, contentObject, contentData } from "@/app/lib/definitions";
 import { data } from "@/app/lib/data";
 
 interface ProjectModalProps {
@@ -25,7 +25,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 	const [currentTab, setCurrentTab] = useState<tabState>("Overview");
 	const changeTab = (tabName: tabState) => setCurrentTab(tabName);
 
-	const contentDisplay: contentObject = {
+	const contentDisplay: contentData = {
 		"Overview": {
 			contentType: "Overview",
 			title: "Overview",

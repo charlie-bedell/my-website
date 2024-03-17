@@ -3,20 +3,21 @@ import { useEffect, useState } from "react";
 import ProjectCard from "@/app/ui/ProjectCard/ProjectCard";
 import ProjectModal from "@/app/ui/ProjectModal/ProjectModal";
 import { retrieveRepos } from "@/app/lib/githubApi";
+import { repoData, repoObject } from "@/app/lib/definitions";
 
 const Page: React.FC = () => {
-
-	const [repoData, setRepoData] = useState<any>({});
+	// TODO: render markdown in ProjectModal
+	const [repoData, setRepoData] = useState<repoData>({});
 	const [currentRepo, setCurrentRepo] = useState<string>("");
 	const [displayModal, setDisplayModal] = useState(false);
 
 	useEffect(() => {
 		retrieveRepos()
-			.then((data: any) => {setRepoData(data)})
+			.then((data: repoData) => {setRepoData(data)})
 			.catch((err) => console.error(err));
 	}, []);
 
-	const enableModal = (repoId: any) => {
+	const enableModal = (repoId: string) => {
 		changeCurrentRepo(repoId);
 		setDisplayModal(true);
 	}
@@ -25,7 +26,7 @@ const Page: React.FC = () => {
 		setDisplayModal(false);
 	}
 
-	const changeCurrentRepo = (repoId: any) => {
+	const changeCurrentRepo = (repoId: string) => {
 		if (repoId !== currentRepo) {
 			setCurrentRepo(repoId);
 		}
@@ -33,7 +34,7 @@ const Page: React.FC = () => {
 	
   return (
 	  <div className="grid grid-cols-3 place-items-center gap-5">
-			{Array.from(Object.values(repoData)).map((repo: any) => {
+			{Array.from(Object.values(repoData)).map((repo: repoObject) => {
 				return <ProjectCard key={repo.id}
 								 description={repo.description}
 								 title={repo.name}
