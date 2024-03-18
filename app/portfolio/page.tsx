@@ -22,8 +22,10 @@ const Page: React.FC = () => {
 		setDisplayModal(true);
 	}
 
-	const disableModal = () => {
-		setDisplayModal(false);
+	const disableModal = (e: any) => {
+		if (e.target === e.currentTarget) {
+			setDisplayModal(false);
+		}
 	}
 
 	const changeCurrentRepo = (repoId: string) => {
