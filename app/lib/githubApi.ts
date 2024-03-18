@@ -72,7 +72,6 @@ export const retrieveRepos = async () => {
 			const readme = await retrieveReadme(repoKeyed[repoId].name);
 			repoKeyed[repoId].readme = readme;
 		}
-		console.log(repoKeyed);
 		
 		return repoKeyed;
 

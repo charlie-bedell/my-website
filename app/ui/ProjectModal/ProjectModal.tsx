@@ -1,11 +1,10 @@
 "use client"
-
 import { useState } from "react";
 import ProjectCardTitle from "@/app/ui/ProjectCard/ProjectCardTitle";
 import SubNav from "@/app/ui/SubNav/SubNav";
 import RepoContent from "@/app/ui/RepoContent/RepoContent";
-import { tabState, contentObject, contentData } from "@/app/lib/definitions";
-import { data } from "@/app/lib/data";
+import { tabState, contentData } from "@/app/lib/definitions";
+import CloseModalButton from "./closeModalButton";
 
 interface ProjectModalProps {
   repoName: string,
@@ -20,7 +19,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 	readmeImgUrl,
 	closeModalHandler,
 	readme,
-	overview}) => {
+	overview
+}) => {
 
 	const [currentTab, setCurrentTab] = useState<tabState>("Overview");
 	const changeTab = (tabName: tabState) => setCurrentTab(tabName);
@@ -39,12 +39,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 	};
 	
   return (
-	  <div className="fixed inset-x-40 inset-y-10 bg-gray-200 rounded-xl">
+	  <div className="fixed flex flex-col inset-x-20 inset-y-10 bg-gray-200 rounded-xl max-h-full overflow-y-auto">
 			<div className="flex justify-between">
 				<ProjectCardTitle title={repoName} />
-				<button
-					onClick={() => {closeModalHandler()}}
-					className="flex justify-center items-center font-bold px-4 text-black border border-black rounded-tr-xl">X</button>
+				<CloseModalButton closeModalHandler={closeModalHandler}/>
 			</div>
 			<div className="flex w-full h-[200px] justify-center align-center">
 				<img className="w-full h-full object-cover"

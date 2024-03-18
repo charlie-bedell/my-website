@@ -1,0 +1,39 @@
+.markdown h1 {
+		font-weight: bolder;
+}
+
+.markdown h2 {
+		color: red;
+}
+
+.markdown p {
+		color: blue;
+}
+
+.markdown code {
+		font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		font-size: 0.8em;
+		background-color: #f7f7f7;
+		color: #333;
+		border: 1px solid #ccc;
+		padding: 0px 2px;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		white-space: nowrap;
+}
+
+.markdown ul {
+		margin-left: 1em;
+}
+
+.markdown > ul > li {
+		font-weight: bolder;
+}
+
+.markdown > ul > li > ul > li {
+		font-weight: normal;
+}
+
+.markdown li {
+		list-style-type: circle;
+}
