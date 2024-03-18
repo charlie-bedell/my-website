@@ -1,9 +1,11 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import ProjectCard from "@/app/ui/ProjectCard/ProjectCard";
 import ProjectModal from "@/app/ui/ProjectModal/ProjectModal";
 import { retrieveRepos } from "@/app/lib/githubApi";
 import { repoData, repoObject } from "@/app/lib/definitions";
+import React from 'react';
 
 const Page: React.FC = () => {
 	// TODO: render markdown in ProjectModal
@@ -33,16 +35,17 @@ const Page: React.FC = () => {
 			setCurrentRepo(repoId);
 		}
 	}
-	
-  return (
-	  <div className="grid grid-cols-3 place-items-center gap-5">
+
+	return (
+		<div className="grid grid-cols-3 place-items-center gap-5">
 			{Array.from(Object.values(repoData)).map((repo: repoObject) => {
-				return <ProjectCard key={repo.id}
-								 description={repo.description}
-								 title={repo.name}
-								 id={repo.id}
-								 openModalHandler={enableModal}
-				/>
+				return (<ProjectCard
+									key={repo.id}
+									description={repo.description}
+									title={repo.name}
+									id={repo.id}
+									openModalHandler={enableModal}
+				/>)
 			})}
 			{displayModal &&
 				<ProjectModal
