@@ -47,7 +47,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 					<CloseModalButton closeModalHandler={closeModalHandler}/>
 				</div>
 				<div className="flex w-full h-[200px] justify-center align-center">
-					<img className="w-full h-full object-cover" src={readmeImgUrl} />
+					<img className="w-full h-full object-cover" src={readmeImgUrl} alt="an image"/>
 				</div>
 				<SubNav currentTab={currentTab} handleChange={changeTab}/>
 				<RepoContent contentType={contentDisplay[currentTab].contentType} title={contentDisplay[currentTab].title} content={contentDisplay[currentTab].content} />
