@@ -1,16 +1,18 @@
+import React from "react";
 import clsx from "clsx";
 import { tabState } from "@/app/lib/definitions";
 
 interface SubNavButtonProps {
-  name: tabState,
+	name: tabState,
+	// eslint-disable-next-line no-unused-vars
 	handleChange: (name: tabState) => void,
 	currentTab: string,
 }
 
 const SubNavButton: React.FC<SubNavButtonProps> = ({ name, handleChange, currentTab }) => {
-	
-  return (
-	  <button className={
+
+	return (
+		<button className={
 			clsx(
 				"",
 				{
@@ -20,7 +22,7 @@ const SubNavButton: React.FC<SubNavButtonProps> = ({ name, handleChange, current
 			)
 		}
 			onClick={() => handleChange(name)}>
-		  {name}
+			{name}
 		</button>
 	)
 }

@@ -1,8 +1,9 @@
 import ProjectModal from "../ui/ProjectModal/ProjectModal";
+import React from 'react';
 
 const Page: React.FC = () => {
-  return (
-	  <div className="flex flex-col items-center justify-center w-full h-full">
+return (
+	<div className="flex flex-col items-center justify-center w-full h-full">
 			<ProjectModal
 				repoName="my test name"
 				closeModalHandler={() => {/* do nothing */}}

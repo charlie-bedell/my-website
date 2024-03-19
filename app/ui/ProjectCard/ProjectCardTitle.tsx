@@ -1,11 +1,13 @@
+import React from 'react';
+
 interface ProjectCardTitleProps {
-  title: string,
+	title: string,
 }
 
 const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ title }) => {
-  return (
+	return (
 			<div className="w-full justify-start pl-3 mx-5 text-black">
-		  <p><span className="font-bold">{title}</span></p>
+				<p><span className="font-bold">{title}</span></p>
 			</div>
 	)
 }

@@ -37,5 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 ## Future
-- remove github api calls, subscribe backend to updates / new repositories via github workflow(?)
+- remove github api calls, subscribe backend to updates / new repositories via github webhook
 - add blog and overview com

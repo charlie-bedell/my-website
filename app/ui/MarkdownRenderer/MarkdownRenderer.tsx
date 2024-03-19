@@ -1,17 +1,18 @@
 import './style.css';
+import React from 'react';
 import { Remarkable } from 'remarkable';
 
 interface MarkdownRendererProps {
-  markdown: string
+	markdown: string
 }
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdown }) => {
 
 	const md = new Remarkable();
 	const html = md.render(markdown);
-	
-  return (
-	  <div className="markdown" dangerouslySetInnerHTML={{__html: html}} />
+
+	return (
+		<div className="markdown" dangerouslySetInnerHTML={{__html: html}} />
 	)
 }
 

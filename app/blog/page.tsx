@@ -1,7 +1,9 @@
+import React from 'react';
+
 const Page: React.FC = () => {
-  return (
-	  <div>
-		  Blog!
+	return (
+		<div>
+			Blog!
 		</div>
 	)
 }

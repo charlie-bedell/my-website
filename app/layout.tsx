@@ -1,17 +1,18 @@
+import React from 'react';
 import "./globals.css";
 import NavBar from "./ui/NavBar/NavBar";
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
+	return (
+		<html lang="en">
+			<body>
 				<NavBar/>
 				{children}
 			</body>
-    </html>
-  );
+		</html>
+	);
 }

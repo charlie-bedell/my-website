@@ -1,4 +1,5 @@
 "use client"
+import React from "react";
 import { useState } from "react";
 import ProjectCardTitle from "@/app/ui/ProjectCard/ProjectCardTitle";
 import SubNav from "@/app/ui/SubNav/SubNav";
@@ -8,8 +9,9 @@ import CloseModalButton from "@/app/ui/ProjectModal/closeModalButton";
 import ModalOverlay from "@/app/ui/ProjectModal/ModalOverlay";
 
 interface ProjectModalProps {
-  repoName: string,
+	repoName: string,
 	readmeImgUrl: string,
+	// eslint-disable-next-line no-unused-vars
 	closeModalHandler: (e: any) => void,
 	readme: string,
 	overview?: string
@@ -38,8 +40,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 			content: readme,
 		}
 	};
-	
-  return (
+
+	return (
 		<ModalOverlay closeModalHandler={closeModalHandler}>
 			<div className="fixed flex flex-col inset-x-20 inset-y-10 bg-gray-200 rounded-xl max-h-full overflow-y-auto">
 				<div className="flex justify-between">
