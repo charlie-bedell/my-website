@@ -1,7 +1,7 @@
 export default function Page() {
-  return (
-	  <div>
-		  About!
+	return (
+		<div>
+			About!
 		</div>
 	)
 }

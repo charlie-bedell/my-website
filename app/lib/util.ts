@@ -1,5 +1,3 @@
-import { error } from "console";
-
 export const getGitHubUserFromEnv = () => {
 	const GH_USER = process.env.GITHUB_USER;
 	if (GH_USER === undefined) {

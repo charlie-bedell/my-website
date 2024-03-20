@@ -7,6 +7,7 @@ export interface contentObject {
 }
 
 export type contentData = {
+	// eslint-disable-next-line no-unused-vars
 	[key in tabState]: contentObject
 }
 
