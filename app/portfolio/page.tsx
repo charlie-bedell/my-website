@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "@/app/ui/ProjectCard/ProjectCard";
 import ProjectModal from "@/app/ui/ProjectModal/ProjectModal";
-import { retrieveRepos } from "@/app/lib/githubApi";
+import { retrieveRepos } from "@/app/lib/services/githubApi";
 import { repoData, repoObject } from "@/app/lib/definitions";
 import React from 'react';
 

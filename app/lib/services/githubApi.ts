@@ -2,7 +2,7 @@
 
 import { Octokit } from "octokit";
 import { getGitHubUserFromEnv } from "@/app/lib/util";
-
+import { repoData } from "../definitions";
 
 const GH_USER = getGitHubUserFromEnv();
 const octokit = new Octokit(
@@ -39,7 +39,7 @@ export const checkForReadme = (repoContents: any[]) => {
 	return readmeName;
 }
 
-export const retrieveRepos = async () => {	
+export const retrieveRepos = async (): Promise<repoData> => {	
 	const excludedRepos = [
 		'charlie-bedell',
 		'k-frequent',
@@ -77,6 +77,7 @@ export const retrieveRepos = async () => {
 
 	} catch (err) {
 		console.error(`an error occured while fetching the repositories of user ${GH_USER}: `, err);
+		return {"0": {id: 0, name: "", description: "", readme: ""}};
 	}
 }
 
