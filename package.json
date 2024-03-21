@@ -2,21 +2,26 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "tsx -r dotenv/config ./app/scripts/seedGithubData.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@vercel/postgres": "^0.7.2",
     "clsx": "^2.1.0",
+    "dotenv": "^16.4.5",
     "heroicons": "^2.1.1",
     "next": "14.1.0",
     "octokit": "^3.1.2",
     "react": "^18",
     "react-dom": "^18",
-    "remarkable": "^2.0.1"
+    "remarkable": "^2.0.1",
+    "tsx": "^4.7.1"
   },
   "devDependencies": {
     "@types/node": "^20",
