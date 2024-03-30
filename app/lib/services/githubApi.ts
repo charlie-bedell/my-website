@@ -77,7 +77,7 @@ export const retrieveRepos = async (): Promise<repoData> => {
 
 	} catch (err) {
 		console.error(`an error occured while fetching the repositories of user ${GH_USER}: `, err);
-		return {"0": {id: 0, name: "", description: "", readme: ""}};
+		return {"0": {id: 0, repo_id: 0, name: "", description: "", readme: ""}};
 	}
 }
 

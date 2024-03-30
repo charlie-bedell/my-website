@@ -42,5 +42,5 @@ export const filterRepos = (repositories: QueryResultRow[]): repoObject[] => {
 		'system-design-primer',
 		'public_record_keeper'];
 	const filteredRepos = repositories.filter((repo) => !excludeRepos.includes(repo.name));
-	return filteredRepos;
+	return filteredRepos as repoObject[];
 	};

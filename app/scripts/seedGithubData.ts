@@ -1,8 +1,8 @@
-import { createClient } from '@vercel/postgres';
+import { VercelClient, createClient } from '@vercel/postgres';
 import { retrieveRepos } from '../lib/services/githubApi';
 // TODO auth
 
-async function seedGitHubRepositories(client) {
+async function seedGitHubRepositories(client: VercelClient) {
 	try {
 		const createTable = await client.sql`
 CREATE TABLE IF NOT EXISTS
@@ -43,7 +43,7 @@ VALUES (${repo.id}, ${repo.name}, ${repo.description}, ${repo.readme})
 	
 }
 
-async function createOverviewTable(client) {
+async function createOverviewTable(client: VercelClient) {
 	try {
 		client.sql`
 CREATE TABLE IF NOT EXISTS repoOverviews (
@@ -58,7 +58,7 @@ FOREIGN KEY (repo_id) REFERENCES githubRepositories(repo_id)
 	}
 }
 
-async function createBlogTable(client) {
+async function createBlogTable(client: VercelClient) {
 	try {
 		client.sql`
 CREATE TABLE IF NOT EXISTS blogArticles (
