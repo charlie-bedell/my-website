@@ -12,8 +12,9 @@ const Page: React.FC = () => {
 
 	// fetch data in useEffect, assign to repoData
 	useEffect(() => {
+		
 		const fetchRepos = async () => {
-			const res: Response = await fetch("http://localhost:3000/api");
+			const res: Response = await fetch(`${window.location.origin}/api`);
 			if (res.ok) {
 				const data: repoData = await res.json();
 				setRepoData(data);
