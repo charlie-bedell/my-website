@@ -1,22 +1,28 @@
 "use client"
-
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectCard from "@/app/ui/ProjectCard/ProjectCard";
 import ProjectModal from "@/app/ui/ProjectModal/ProjectModal";
-import { retrieveRepos } from "@/app/lib/githubApi";
 import { repoData, repoObject } from "@/app/lib/definitions";
-import React from 'react';
 
 const Page: React.FC = () => {
-	// TODO: render markdown in ProjectModal
+	
 	const [repoData, setRepoData] = useState<repoData>({});
 	const [currentRepo, setCurrentRepo] = useState<string>("");
 	const [displayModal, setDisplayModal] = useState(false);
 
+	// fetch data in useEffect, assign to repoData
 	useEffect(() => {
-		retrieveRepos()
-			.then((data: repoData) => {setRepoData(data)})
-			.catch((err) => console.error(err));
+		
+		const fetchRepos = async () => {
+			const res: Response = await fetch(`${window.location.origin}/api`);
+			if (res.ok) {
+				const data: repoData = await res.json();
+				setRepoData(data);
+			} else {
+				console.error("there was an error fetching the data: ", )
+			}
+		};
+		fetchRepos();
 	}, []);
 
 	const enableModal = (repoId: string) => {
