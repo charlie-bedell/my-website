@@ -1,5 +1,6 @@
 import { QueryResult, QueryResultRow, VercelClient, createClient } from '@vercel/postgres';
 import { repoArrayToObject } from '../util';
+import { repoData } from '../definitions';
 
 const newClient = (): VercelClient => {
 	return createClient({
@@ -7,7 +8,7 @@ const newClient = (): VercelClient => {
 	});
 }
 // TODO: setup api layer to fetch github info on server
-export const fetchRepoData = async () => {
+export const fetchRepoData = async (): Promise<repoData> => {
 	const client = newClient();
 	await client.connect();
 	const repositories: QueryResult<QueryResultRow> = await client.sql`select * from githubRepositories;`;
