@@ -9,7 +9,7 @@ interface PortfolioProps {
 }
 
 const Portfolio: React.FC<PortfolioProps> = ({ repoDataPack }) => {
-	const [repoData, _setRepoData] = useState<repoData>(repoDataPack);
+	const repoData: repoData = repoDataPack;
 	const [currentRepo, setCurrentRepo] = useState<string>("");
 	const [displayModal, setDisplayModal] = useState(false);
 
