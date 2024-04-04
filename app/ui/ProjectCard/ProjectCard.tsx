@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import ProjectCardDescription from "@/app/ui/ProjectCard/ProjectCardDescription";
 import ProjectCardTitle from "@/app/ui/ProjectCard/ProjectCardTitle";

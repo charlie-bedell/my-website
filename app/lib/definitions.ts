@@ -13,6 +13,7 @@ export type contentData = {
 
 export interface repoObject {
 	id: number,
+	repo_id: number,
 	name: string,
 	description: string,
 	readme: string
