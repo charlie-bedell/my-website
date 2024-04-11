@@ -8,6 +8,7 @@ const octokit = new Octokit(
 	});
 
 export const getRepoContents = async (repo: string) => {
+	// gets the contents of a specific readme
 	try {
 		const response = await octokit.request('GET /repos/{username}/{repo}/contents',
 			{
@@ -25,7 +26,9 @@ export const getRepoContents = async (repo: string) => {
 	}
 }
 
-export const checkForReadme = (repoContents: any[]) => {
+export const checkForReadme = (repoContents: any[]): string | undefined => {
+	// returns a readme name if its in repoContents
+	// otherwise: undefined
 	const possibleReadmeNames = ["readme.md", "readme.txt", "readme"];
 	let readmeName: string | undefined;
 	repoContents.some((file) => {
@@ -80,9 +83,12 @@ export const retrieveRepos = async (): Promise<repoData> => {
 }
 
 export const retrieveReadme = async (repo: string) => {
-	
+	// checks if a readme exists within a the contents of a repo.
+	// If it does, return the readme
 	const contents = await getRepoContents(repo);
-	
+
+
+	// 
 	const readmeName = checkForReadme(contents);
 	if (readmeName) {
 		try {

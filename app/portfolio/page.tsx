@@ -1,7 +1,6 @@
 import React from 'react';
 import Portfolio from '../ui/Portfolio/Portfolio';
 import { repoData } from '../lib/definitions';
-import { fetchRepoData } from '../lib/services/vercelPostgres';
 import { retrieveRepos } from '../lib/services/githubApi';
 
 const fetchRepos = async () => {
@@ -12,7 +11,6 @@ const fetchRepos = async () => {
 		console.error("there was an error fetching the data: ", err);
 	}
 }
-
 
 const Page: React.FC = async () => {
 
