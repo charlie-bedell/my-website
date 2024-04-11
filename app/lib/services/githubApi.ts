@@ -1,5 +1,3 @@
-"use server"
-
 import { Octokit } from "octokit";
 import { getGitHubUserFromEnv } from "@/app/lib/util";
 import { repoData } from "../definitions";
@@ -108,3 +106,4 @@ export const retrieveReadme = async (repo: string) => {
 		return "No Readme";
 	}
 }
+
