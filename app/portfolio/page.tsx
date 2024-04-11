@@ -9,6 +9,7 @@ const fetchRepos = async () => {
 		return res;
 	} catch (err) {
 		console.error("there was an error fetching the data: ", err);
+		return undefined;
 	}
 }
 
