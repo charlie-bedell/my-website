@@ -3,7 +3,7 @@ import Portfolio from '../ui/Portfolio/Portfolio';
 
 const fetchRepos = async () => {
 	try {
-		const res: Response = await fetch("http://localhost:3000/api/fetchrepos", {
+		const res: Response = await fetch(`${process.env.ORIGIN}/api/fetchrepos`, {
 			next: { revalidate: (60 * 60 * 24) }, 
 		});
 		const data = await res.json();
